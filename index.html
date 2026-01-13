@@ -37,7 +37,7 @@
             color: var(--text-dark);
             line-height: 1.6;
             background-color: #f9f9f9;
-            padding-top: var(--header-height); /* ห้ามเนื้อหาซ้อน Header */
+            padding-top: var(--header-height);
         }
 
         /* --- Header & Navigation --- */
@@ -69,7 +69,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            white-space: nowrap; /* ไม่ให้ชื่อขึ้นบรรทัดใหม่ */
+            white-space: nowrap;
         }
 
         .nav-links {
@@ -90,7 +90,6 @@
             color: var(--primary-color);
         }
 
-        /* ปุ่มเมนูมือถือ (ซ่อนบน PC) */
         .menu-toggle {
             display: none;
             font-size: 1.8rem;
@@ -101,8 +100,7 @@
         /* --- Hero Section --- */
         #home {
             position: relative;
-            /* ปรับความสูงให้เหมาะกับมือถือและคอม */
-            height: calc(100vh - var(--header-height)); 
+            height: calc(100vh - var(--header-height));
             min-height: 500px;
             max-height: 800px;
             background: linear-gradient(rgba(0, 150, 136, 0.85), rgba(0, 77, 64, 0.85)), url('https://picsum.photos/seed/hospital/1920/1080.jpg');
@@ -122,7 +120,7 @@
         }
 
         .hero-content h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem); /* ปรับขนาดอัตโนมัติตามหน้าจอ */
+            font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 1rem;
             line-height: 1.2;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
@@ -171,14 +169,13 @@
             margin-bottom: 0.5rem;
         }
 
-        /* --- Services Grid (Responsive) --- */
+        /* --- Services Grid --- */
         #info {
             background-color: var(--white);
         }
 
         .services-grid {
             display: grid;
-            /* ปรับอัตโนมัติ: ขั้นต่ำ 260px หากพอก็เต็มจอ */
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 25px;
         }
@@ -214,7 +211,7 @@
             text-align: center;
         }
 
-        /* --- Personnel Grid (Responsive) --- */
+        /* --- Personnel Grid --- */
         #personnel {
             background-color: #f4f4f4;
         }
@@ -235,7 +232,7 @@
 
         .person-img {
             width: 100%;
-            height: 250px; /* ความสูงคงที่เพื่อความสวยงาม */
+            height: 250px;
             object-fit: cover;
             background-color: #ddd;
         }
@@ -252,14 +249,14 @@
             display: block;
         }
 
-        /* --- Contact Section (Responsive) --- */
+        /* --- Contact Section --- */
         #contact {
             background-color: var(--white);
         }
 
         .contact-container {
             display: grid;
-            grid-template-columns: 1fr 1.5fr; /* แผนที่ใหญ่กว่าข้อมูลคนละหน่อยบนจอใหญ่ */
+            grid-template-columns: 1fr 1.5fr;
             gap: 40px;
         }
 
@@ -307,30 +304,26 @@
         }
 
         /* --- RESPONSIVE MEDIA QUERIES --- */
-        
-        /* Tablet & Mobile (หน้าจอน้อยกว่า 900px) */
         @media (max-width: 900px) {
             .contact-container {
-                grid-template-columns: 1fr; /* เรียงแนวตั้ง */
+                grid-template-columns: 1fr;
             }
             .map-container {
                 height: 300px;
-                order: -1; /* ย้ายแผนที่ขึ้นด้านบนหรือลงด้านล่างตามชอบ */
+                order: -1;
             }
         }
 
-        /* Mobile (หน้าจอน้อยกว่า 768px - เช่น มือถือ, iPad Mini แนวตั้ง) */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
                 z-index: 1001;
             }
 
-            /* ปรับเมนูให้เป็น Overlay เต็มจอ */
             .nav-links {
                 position: fixed;
                 top: 0;
-                right: -100%; /* ซ่อนไว้ขวาสุด */
+                right: -100%;
                 width: 70%;
                 height: 100vh;
                 background-color: var(--white);
@@ -342,14 +335,12 @@
                 padding-top: 60px;
             }
 
-            /* คลาสสำหรับเปิดเมนู (จะถูกเติมด้วย JS) */
             .nav-links.active {
                 right: 0;
             }
 
-            /* ปรับขนาดการ์ดเล็กลงเมื่อจอเล็กมากๆ */
             .services-grid, .personnel-grid {
-                grid-template-columns: 1fr; /* แสดงเพียง 1 คอลัมน์บนมือถือ */
+                grid-template-columns: 1fr;
             }
             
             section {
@@ -367,7 +358,6 @@
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v12m-6-6h12" stroke="currentColor"/></svg>
                 รพ.สต. คลองน้อย
             </div>
-            <!-- ปุ่มกดเมนูมือถือ -->
             <div class="menu-toggle" id="mobile-menu">☰</div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#home" onclick="closeMenu()">หน้าหลัก</a></li>
@@ -519,8 +509,16 @@
                     </div>
 
                     <div class="map-container">
-                        <!-- สามารถเปลี่ยน src เป็น iframe ของ Google Maps ตำแหน่งจริงได้ -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3897.562912345678!2d100.5!3d14.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDEyJzAwLjAiTiAxMDDwMzAnMDAuMCJF!5e0!3m2!1sen!2sth!4v1600000000000!5m2!1sen!2sth" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <!-- แผนที่ที่อัปเดตตำแหน่งให้ถูกต้องแล้ว -->
+                        <iframe 
+                            src="https://maps.google.com/maps?q=14.652600310286168,100.55073035242165&t=&z=17&ie=UTF8&iwloc=&output=embed" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -532,24 +530,20 @@
         <p>&copy; 2023 โรงพยาบาลส่งเสริมสุขภาพตำบลคลองน้อย อำเภอบ้านแพรก จังหวัดพระนครศรีอยุธยา</p>
     </footer>
 
-    <!-- Script สำหรับการทำงานเมนูบนมือถือ -->
+    <!-- Script เมนูมือถือ -->
     <script>
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
 
-        // ฟังก์ชันเปิด/ปิดเมนู
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            
-            // เปลี่ยนไอคอนเมื่อกด
             if(navLinks.classList.contains('active')) {
-                menuToggle.textContent = '✕'; // เปลี่ยนเป็นกากบาท
+                menuToggle.textContent = '✕';
             } else {
-                menuToggle.textContent = '☰'; // เปลี่ยนเป็นขีด
+                menuToggle.textContent = '☰';
             }
         });
 
-        // ฟังก์ชันปิดเมนูเมื่อกดลิงก์ (เพื่อให้หน้าจอไม่บังเนื้อหา)
         function closeMenu() {
             if (window.innerWidth <= 768) {
                 navLinks.classList.remove('active');
